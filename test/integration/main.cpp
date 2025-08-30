@@ -7,6 +7,7 @@
 #include <iostream>
 #include <vector>
 #include <cstring>
+#include <iomanip>
 
 // --- pretty printers ---
 static void print_event(const Event& ev) {
@@ -174,10 +175,11 @@ eod_reached:
     // explicit EOD settle (mark open pos with last trade price)
 
     // final summary
+    double pnl_tl = static_cast<double>(strat.realized_pnl()) / 1000.0;
     std::cout << "[FINAL] batches=" << batches_total
               << " msgs=" << msgs_total
               << " pos=" << strat.position()
-              << " pnl=" << strat.realized_pnl() << "\n";
+              << " pnl=" << strat.realized_pnl() << " converted to TL: " <<std::fixed << std::setprecision(2) << pnl_tl << " TL)\n";
 
     // final top-10 snapshot
     if (!quiet_mode) {

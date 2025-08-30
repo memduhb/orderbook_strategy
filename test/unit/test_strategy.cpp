@@ -7,6 +7,7 @@
 #include <vector>
 #include <cstdint>
 #include <algorithm>
+#include <iomanip>
 
 // ----- pretty book snapshot (top-of-book only) -----
 static void print_top(const Orderbook& ob) {
