@@ -1,0 +1,19 @@
+# Build artifacts
+*.o
+*.exe
+test_parser
+test_orderbook
+test_strategy
+integration_main
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
