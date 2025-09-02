@@ -88,9 +88,11 @@ class Orderbook
 public: 
     // Constructors and assignment
     Orderbook() = default; 
-    Orderbook(const Orderbook&) = delete;                    ///< No copy constructor
-    Orderbook& operator=(const Orderbook&) = delete;         ///< No copy assignment
-
+    Orderbook(const Orderbook&) = delete;                       ///< No copy constructor
+    Orderbook& operator=(const Orderbook&) = delete;            ///< No copy assignment
+    Orderbook(Orderbook&&) = delete;                            ///< No move constructor
+    Orderbook& operator=(Orderbook&&) = delete;                 ///< No move assignment
+    
     // Core operations
     /**
      * @brief Applies an ITCH event to the order book

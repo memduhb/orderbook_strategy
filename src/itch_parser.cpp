@@ -104,7 +104,7 @@ Event ItchParser::parse_message(const char* msg, size_t len)
     auto BE32 = [](const char* p){ return endian::read_u32_be(p); };
     auto BE64 = [](const char* p){ return endian::read_u64_be(p); };
 
-    Event event{};                      
+    Event event{};       
     if (len < 1) return event;
 
     const MessageType type = ParseMessageType(msg[0]);
