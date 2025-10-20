@@ -1,14 +1,14 @@
 # Order Book Strategy
 
-A C++ program that reads market data and trades when the bid-ask spread changes from 1 kuruş to 2 kuruş.
+A C++ program that reads market data and trades when the bid-ask spread changes from 1 tick to 2 ticks.
 
 ## Overview
 
 This program:
 - Reads ITCH format market data
 - Tracks bid and ask prices in an order book
-- Buys when the ask price disappears and spread widens to 2 kuruş
-- Sells when the bid price disappears and spread widens to 2 kuruş
+- Buys when the ask price disappears and spread widens to 2 ticks
+- Sells when the bid price disappears and spread widens to 2 ticks
 - Processes events in batches by timestamp
 
 ## Project Structure
@@ -53,8 +53,8 @@ order_book_strategy/
 
 ### Trading Strategy (`src/strategy.*`)
 - Watches for spread changes
-- Buys when spread goes from 1 to 2 kuruş after ask disappears
-- Sells when spread goes from 1 to 2 kuruş after bid disappears
+- Buys when spread goes from 1 to 2 ticks after ask disappears
+- Sells when spread goes from 1 to 2 ticks after bid disappears
 - Keeps track of position and profit/loss
 
 ### ITCH Parser (`src/itch_parser.*`)
@@ -66,17 +66,17 @@ order_book_strategy/
 
 The program trades based on these rules:
 
-1. **Wait for tight spread**: When bid-ask spread is 1 kuruş
-2. **Watch for gap**: When spread widens to 2 kuruş after being tight
+1. **Wait for tight spread**: When bid-ask spread is 1 tick
+2. **Watch for gap**: When spread widens to 2 tick after being tight
 3. **Trade**: 
    - Buy when ask disappears (spread widens above)
    - Sell when bid disappears (spread widens below)
 4. **Track results**: Keep count of position and profit/loss
 
 ### Key Numbers
-- `PRICE_TICK = 10` (1 kuruş per tick)
-- `TIGHT_SPREAD = 10` (1 kuruş spread)
-- `GAP_SPREAD = 20` (2 kuruş spread)
+- `PRICE_TICK = 10` (1 tick per tick)
+- `TIGHT_SPREAD = 10` (1 tick spread)
+- `GAP_SPREAD = 20` (2 tick spread)
 
 ## Building and Running
 
